@@ -43,14 +43,18 @@ jobs:
            bundle exec rake db:create
            bundle exec rake db:schema:load
 
+    # run rubocop
+    - run:
+        name: Run rubocop
+        command: bundle exec rubocop
+
     # run tests!
     - run:
         name: Run rspec
         command: |
           mkdir /tmp/test-results
-          sudo gem install bundler
-          sudo gem install rspec
-          sudo gem install rspec-core
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+            circleci tests split --split-by=timings)"
 
           bundle exec rspec \
             --format progress \

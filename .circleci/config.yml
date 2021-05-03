@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  heroku-container: pbrisbin/heroku-container@1.0.0
+
 jobs:
   build:
     docker:
@@ -70,3 +74,19 @@ jobs:
     - store_artifacts:
         path: /tmp/test-results
         destination: test-results
+
+
+
+workflows:
+  version: 2.1
+  build_and_test_and_release:
+    jobs:
+      - build
+      - heroku-container/push-and-release:
+          app-name: portfolio
+          filters:
+                branches:
+                    only:
+                    - main
+          requires:
+            - build

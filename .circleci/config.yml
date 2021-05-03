@@ -83,7 +83,7 @@ workflows:
     jobs:
       - build
       - heroku-container/push-and-release:
-          app-name: portfolio
+          app-name: portfolio-shun
           filters:
                 branches:
                     only:

@@ -84,6 +84,7 @@ workflows:
       - build
       - heroku-container/push-and-release:
           app-name: portfolio
+          process-types: web
           filters:
                 branches:
                     only:

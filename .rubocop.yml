@@ -24,3 +24,12 @@ ClassAndModuleChildren:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false

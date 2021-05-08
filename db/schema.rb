@@ -10,47 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_091924) do
-
-  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "restaurant_id", null: false
-    t.string "name", null: false
-    t.integer "price", null: false
-    t.text "description", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
+ActiveRecord::Schema.define(version: 20_210_504_091_924) do
+  create_table 'foods', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'restaurant_id', null: false
+    t.string 'name', null: false
+    t.integer 'price', null: false
+    t.text 'description', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['restaurant_id'], name: 'index_foods_on_restaurant_id'
   end
 
-  create_table "line_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "food_id", null: false
-    t.bigint "restaurant_id", null: false
-    t.bigint "order_id"
-    t.integer "count", default: 0, null: false
-    t.boolean "active", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_line_foods_on_food_id"
-    t.index ["order_id"], name: "index_line_foods_on_order_id"
-    t.index ["restaurant_id"], name: "index_line_foods_on_restaurant_id"
+  create_table 'line_foods', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.bigint 'food_id', null: false
+    t.bigint 'restaurant_id', null: false
+    t.bigint 'order_id'
+    t.integer 'count', default: 0, null: false
+    t.boolean 'active', default: false, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['food_id'], name: 'index_line_foods_on_food_id'
+    t.index ['order_id'], name: 'index_line_foods_on_order_id'
+    t.index ['restaurant_id'], name: 'index_line_foods_on_restaurant_id'
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "total_price", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'orders', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.integer 'total_price', default: 0, null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "fee", default: 0, null: false
-    t.integer "time_required", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'restaurants', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
+    t.string 'name', null: false
+    t.integer 'fee', default: 0, null: false
+    t.integer 'time_required', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "foods", "restaurants"
-  add_foreign_key "line_foods", "foods"
-  add_foreign_key "line_foods", "orders"
-  add_foreign_key "line_foods", "restaurants"
+  add_foreign_key 'foods', 'restaurants'
+  add_foreign_key 'line_foods', 'foods'
+  add_foreign_key 'line_foods', 'orders'
+  add_foreign_key 'line_foods', 'restaurants'
 end

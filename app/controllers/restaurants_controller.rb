@@ -1,9 +1,5 @@
 class RestaurantsController < ApplicationController
   def index
-    restaurants = Restaurant.all
-
-    render json: {
-      restaurants: restaurants
-    }, status: :ok
+    @restaurants = Restaurant.all
   end
 end

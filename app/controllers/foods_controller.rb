@@ -1,10 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    restaurant = Restaurant.find(params[:restaurant_id])
-    foods = restaurant.foods
-
-    render json: {
-      foods: foods
-    }, status: :ok
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @foods = @restaurant.foods
   end
 end

@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  def show; end
+
   def create
     posted_line_foods = LineFood.where(id: params[:line_food_ids])
     order = Order.new(

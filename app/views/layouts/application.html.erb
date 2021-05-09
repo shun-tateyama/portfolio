@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,32 @@
   </head>
 
   <body>
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">portfolio</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
+            <% if user_signed_in? %>
+              <strong><%= link_to current_user.username, restaurants_path %></strong>
+              <%= link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-outline-primary" %>
+              <%= link_to 'ログアウト', destroy_user_session_path, class: "btn btn-outline-primary", method: :delete %>
+            <% else %>
+              <%= link_to 'サインアップ', new_user_registration_path, class: "btn btn-outline-primary" %>
+              <%= link_to 'ログイン', new_user_session_path, class: "btn btn-outline-primary" %>
+            <% end %>
+        </nav>
+      </div>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    
+    <footer>
+
+    </footer>
   </body>
 </html>

@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+  mount_uploader :image, ImageUploader
   has_many :foods, dependent: :destroy
   has_many :line_foods, through: :foods
 

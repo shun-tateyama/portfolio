@@ -1,2 +1,24 @@
-<p>メニュー一覧</p>
-レストランの番号は<%= @restaurant.id %>
+<div class= 'container'>
+  <div class= 'row justify-content-between'>
+    <% @foods.each do |food| %>
+      <div class= 'foods d-flex  center-block'>
+        <div class= 'food-content'>
+          <div class= 'food-name'>
+              <%= food.name %><br>
+          </div>
+          <div class= 'food-description'>
+              <%= food.description %><br>
+          </div>
+          <div class= 'food-price'>
+            <p>$<%= food.price %></p>
+          </div>
+        </div>
+        <div class= 'food-image align-self-center'>
+          <% if food.image? %>
+            <%= link_to image_tag(food.image.url),'/' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

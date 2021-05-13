@@ -3,4 +3,10 @@ class FoodsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @foods = @restaurant.foods
   end
+
+  private
+
+  def food_params
+    params.require(:food).permit(:image)
+  end
 end

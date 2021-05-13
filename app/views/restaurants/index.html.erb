@@ -1,2 +1,18 @@
-TOPページ
-<%= @restaurants.name %>
+<div class= 'container'>
+  <div class= 'row'>
+    <%= image_tag 'main-cover-image.png',class: 'toppage' %>
+  </div>
+  <div class= 'row'>
+    <% @restaurants.each do |restaurant| %>
+      <div class= 'restaurants col-md-4'>
+        <div class= 'image'>
+          <% if restaurant.image? %>
+            <%= link_to image_tag(restaurant.image.url),'/' %>
+          <% end %>
+        </div>
+        <%= restaurant.name %><br>
+        <p>配送料：<%= restaurant.fee %>円 <%= restaurant.time_required %>分</p>
+      </div>
+    <% end %>
+  </div>
+</div>

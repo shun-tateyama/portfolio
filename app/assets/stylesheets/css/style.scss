@@ -1,0 +1,39 @@
+.container{
+  .toppage{
+    width: 100%;
+  }
+}
+
+// restaurants/index.html.erb
+.container{
+  .restaurants{
+    .image img{
+      width: 300px;
+      height: 200px;
+    }
+  }
+}
+
+// foods/index.html.erb
+.container{
+  .foods{
+    border: solid 1px grey;
+    margin: 10px 0;
+    padding: 0;
+    .food-content{
+      width: 150px;
+      height: auto;
+      font-size: 14px;
+      margin: 5px;
+      .food-name{
+        font-size: 18px;
+      }
+      .food-description{
+      }
+    }
+    .food-image img{
+      width: 200px;
+      height: auto;
+    }
+  }
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_095746) do
+ActiveRecord::Schema.define(version: 2021_05_13_132101) do
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "restaurant_id", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_095746) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
   end
 
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_05_08_095746) do
     t.integer "time_required", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,9 +71,6 @@ ActiveRecord::Schema.define(version: 2021_05_08_095746) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "username"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

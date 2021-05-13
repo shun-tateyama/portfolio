@@ -14,10 +14,10 @@
       <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <h5 class="my-0 mr-md-auto font-weight-normal">portfolio</h5>
         <nav class="my-2 my-md-0 mr-md-3">
-          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
-          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
-          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
-          <%= link_to 'ちかちゃん', restaurants_path, class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', '#', class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', '#', class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', '#', class: "p-2 text-dark" %>
+          <%= link_to 'ちかちゃん', '#', class: "p-2 text-dark" %>
             <% if user_signed_in? %>
               <strong><%= link_to current_user.username, restaurants_path %></strong>
               <%= link_to 'プロフィール変更', edit_user_registration_path, class: "btn btn-outline-primary" %>
@@ -33,9 +33,11 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    
-    <footer>
 
+    <footer>
+      <nav class="text-white bg-dark nav justify-content-center">
+        <p class= 'my-2'>&copy; 2021.5-<%= Time.current.year %>.<%= Time.current.month %> PORTFOLIO</p>
+      </nav>
     </footer>
   </body>
 </html>

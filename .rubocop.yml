@@ -36,3 +36,6 @@ Metrics/AbcSize:
 
 Rails/SkipsModelValidations:
   Enabled: false
+
+Style/AsciiComments:
+  Enabled: false

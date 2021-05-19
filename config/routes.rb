@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'restaurants#index'
+  root to: 'restaurants#index'
   devise_for :users
   resources :restaurants do
     resources :foods, only: [:index]
